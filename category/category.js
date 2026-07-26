@@ -27,9 +27,11 @@ if(cat=="foreign")
 if(cat=="animation")
     title.innerText="انیمیشن";
 
-fetch(`../data/${cat}.json?t=${Date.now()}`)
-  .then(r => r.json())
-  .then(data => {
+fetch(`../data/${cat}.json?v=${Date.now()}`, {
+    cache: "no-store"
+})
+.then(r => r.json())
+.then(data => {
     movies = data;
     showPage();
 });
