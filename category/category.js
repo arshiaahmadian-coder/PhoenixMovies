@@ -49,37 +49,43 @@ function showPage(){
 
     pageMovies.forEach(movie=>{
 
-    const div=document.createElement("div");
+        const div=document.createElement("div");
 
-    div.className="movie";
+        div.className="movie";
 
-    div.innerHTML=`
+        div.innerHTML=`
 
-    <img src="${movie.poster}">
+        <img src="${movie.poster}">
 
-    <div class="info">
+        <div class="info">
 
-    <h3>${movie.title}</h3>
+            <div class="row">
+                <h3>${movie.title}</h3>
+                <p style="color: Gold;">${movie.score}</p>
+            </div>
+            <div class="row">
+                <p>${movie.genre}</p>
+                <p>${movie.year}</p>
+            </div>
+            <p id="summary">${movie.summary}</p>
 
-    <p>${movie.year}</p>
+        </div>
 
-    </div>
+        `;
 
-    `;
+        div.onclick=()=>{};
 
-    div.onclick=()=>{};
+        moviesDiv.appendChild(div);
 
-    moviesDiv.appendChild(div);
+    });
 
-});
+    let total=Math.ceil(movies.length/perPage);
 
-let total=Math.ceil(movies.length/perPage);
+    pageText.innerText=`صفحه ${currentPage} از ${total}`;
 
-pageText.innerText=`صفحه ${currentPage} از ${total}`;
+    prev.disabled=currentPage==1;
 
-prev.disabled=currentPage==1;
-
-next.disabled=currentPage==total;
+    next.disabled=currentPage==total;
 
 }
 
