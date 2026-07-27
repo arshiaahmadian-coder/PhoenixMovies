@@ -72,7 +72,7 @@ function showPage(){
 
         `;
 
-        div.onclick=()=>{};
+        // div.onclick=()=>{};
 
         moviesDiv.appendChild(div);
 
