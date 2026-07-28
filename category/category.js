@@ -14,6 +14,7 @@ const next = document.getElementById("next");
 
 const perPage = 10;
 
+let currentTab = "Movie";
 let currentPage = 1;
 
 let movies = [];
@@ -21,8 +22,11 @@ let movies = [];
 if(cat=="iranian")
     title.innerText="ایرانی";
 
-if(cat=="foreign")
-    title.innerText="خارجی";
+if(cat=="foreignMovie")
+    title.innerText = "سینمایی خارجی";
+
+if(cat=="foreignSeries")
+    title.innerText = "سریال خارجی";
 
 if(cat=="animation")
     title.innerText="انیمیشن";
@@ -36,7 +40,7 @@ fetch(`../data/${cat}.json?v=${Date.now()}`, {
     showPage();
 });
 
-function showPage(){
+function showPage() {
 
     moviesDiv.innerHTML="";
 
@@ -90,24 +94,24 @@ function showPage(){
 
 next.onclick=()=>{
 
-if(currentPage<Math.ceil(movies.length/perPage)){
+    if(currentPage<Math.ceil(movies.length/perPage)){
 
-currentPage++;
+        currentPage++;
 
-showPage();
+        showPage();
 
-}
+    }
 
 };
 
 prev.onclick=()=>{
 
-if(currentPage>1){
+    if(currentPage>1){
 
-currentPage--;
+        currentPage--;
 
-showPage();
+        showPage();
 
-}
+    }
 
 };

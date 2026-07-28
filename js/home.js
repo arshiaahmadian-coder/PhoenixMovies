@@ -2,13 +2,18 @@ const cards = document.querySelectorAll(".card");
 
 cards.forEach(card => {
 
-    card.addEventListener("click", () => {
+    if (card.dataset.category == "foreign") 
 
-        const category = card.dataset.category;
+        card.addEventListener("click", () => {
+        window.location.href = `MovieOrSeries.html`;
+        });
+    else
+        card.addEventListener("click", () => {
 
-        window.location.href =
-            `category/index.html?cat=${category}`;
+            const category = card.dataset.category;
 
-    });
+            window.location.href = `category/index.html?cat=${category}`;
+
+        });
 
 });
